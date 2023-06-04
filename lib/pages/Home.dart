@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final fifthScreenHeight = screenHeight * 0.23;
-    final ninthScreenHeight = screenHeight * 0.111;
+    final ninthScreenHeight = screenHeight * 0.09;
 
     return MaterialApp(
       home: Scaffold(
@@ -36,16 +36,30 @@ class _HomePageState extends State<HomePage> {
               color: Colors.white,
             ),
           ),
+          leading: IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () {
+              // Handle menu icon press
+            },
+          ),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.search),
+              onPressed: () {
+                // Handle search icon press
+              },
+            ),
+          ],
           centerTitle: true,
           backgroundColor: Colors.black,
-          leading: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Image.asset(
-              'assets/images/itabaza1.jpg',
-              height: 36,
-              width: 100,
-            ),
-          ),
+          // leading: Padding(
+          //   padding: const EdgeInsets.all(8.0),
+          //   child: Image.asset(
+          //     'assets/images/itabaza1.jpg',
+          //     height: 36,
+          //     width: 100,
+          //   ),
+          // ),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -71,26 +85,31 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.only(top: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
+                    children: const [
                       Flexible(
-                        flex: 2,
-                        child: Image.asset(
-                          'assets/images/itabaza3.jpg',
-                          fit: BoxFit.cover,
+                        flex: 1,
+                        child: Text(
+                          "Itabaza Health",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                       Flexible(
                         flex: 1,
-                        child: Image.asset(
-                          'assets/images/itabaza4.jpg',
-                          fit: BoxFit.cover,
+                        child: Text(
+                          "Itabaza TV",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.red),
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(height: 26),
               ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
